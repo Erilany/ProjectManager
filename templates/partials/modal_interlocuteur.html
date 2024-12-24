@@ -1,0 +1,47 @@
+<div class="modal fade" id="interlocuteurModal" tabindex="-1" aria-labelledby="interlocuteurModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="interlocuteurModalLabel">Ajouter un interlocuteur</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="interlocuteurForm">
+                    {% csrf_token %}
+                    <input type="hidden" id="role_id" name="role_id">
+                    <input type="hidden" id="groupe_id" name="groupe_id">
+                    <input type="hidden" id="is_di" name="is_di">
+                    
+                    <div class="mb-3 non-di-field">
+                        <label for="role_nom" class="form-label">Fonction</label>
+                        <input type="text" class="form-control" id="role_nom" name="role_nom">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="prenom" class="form-label">Prénom</label>
+                        <input type="text" class="form-control" id="prenom" name="prenom" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="nom" class="form-label">Nom</label>
+                        <input type="text" class="form-control" id="nom" name="nom" required>
+                    </div>
+                    
+                    <div class="mb-3 di-field">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
+                    
+                    <div class="mb-3 di-field">
+                        <label for="telephone" class="form-label">Téléphone</label>
+                        <input type="tel" class="form-control" id="telephone" name="telephone">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                <button type="button" class="btn btn-primary" id="saveInterlocuteur">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+</div>

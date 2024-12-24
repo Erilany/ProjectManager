@@ -1,0 +1,118 @@
+{% if not projet_actif %}
+    <div class="alert alert-info">
+        Veuillez sélectionner un projet pour voir ses processus.
+    </div>
+{% else %}
+    {% for selection in selections %}
+        <div class="card mb-3">
+            <div class="card-header">
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-link toggle-etape me-2" data-etape-id="{{ selection.etape.id }}">
+                        <i class="fas fa-chevron-up"></i>
+                    </button>
+                    <h5 class="mb-0 text-start flex-grow-1">
+                        {{ selection.etape.ordre_global }}. {{ selection.etape.nom }}
+                    </h5>
+                    <span class="badge bg-{{ selection.etape.get_status_display_color }}">
+                        {{ selection.etape.get_status_display }}
+                    </span>
+                </div>
+            </div>
+            
+            <div id="etape-{{ selection.etape.id }}-content">
+                {% if selection.etape.description %}
+                    <div class="card-body">
+                        <p class="card-text text-start">{{ selection.etape.description }}</p>
+                    </div>
+                {% endif %}
+                
+                {% for action in actions %}
+                    {% if action.etape_id == selection.etape.id %}
+                        <div class="card mx-3 mb-3">
+                            <div class="card-header">
+                                <div class="d-flex align-items-center">
+                                    <button class="btn btn-link toggle-action me-2" data-action-id="{{ action.id }}">
+                                        <i class="fas fa-chevron-up"></i>
+                                    </button>
+                                    <h6 class="mb-0 text-start flex-grow-1">
+                                        {{ action.ordre }}. {{ action.titre }}
+                                    </h6>
+                                    <button type="button" class="btn btn-sm btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#subtaskModal-{{ action.id }}">
+                                        <i class="fas fa-plus me-1"></i>Ajouter une sous-tâche
+                                    </button>
+                                    <span class="badge bg-{{ action.get_status_display_color }}">
+                                        {{ action.get_status_display }}
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div id="action-{{ action.id }}-content" class="card-body">
+                                {% if action.description %}
+                                    <p class="card-text text-start">{{ action.description }}</p>
+                                {% endif %}
+
+                                <div class="row row-cols-1 row-cols-md-4 g-3">
+                                    {% for subtask in action.subtasks.all %}
+                                        <div class="col">
+                                            <div class="card h-100 bg-{{ subtask.status }}-subtle border-{{ subtask.status }}">
+                                                <div class="card-body d-flex flex-column">
+                                                    <div class="d-flex align-items-start mb-2">
+                                                        <h6 class="card-title text-start mb-0 flex-grow-1">{{ subtask.subject }}</h6>
+                                                        <div class="ms-2">
+                                                            {% if subtask.is_private %}
+                                                                <i class="fas fa-lock text-muted" title="Privé"></i>
+                                                            {% endif %}
+                                                            {% if subtask.in_planning %}
+                                                                <i class="fas fa-calendar text-muted ms-1" title="Planning"></i>
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                    {% if subtask.comments %}
+                                                        <p class="card-text text-start small flex-grow-1">{{ subtask.comments }}</p>
+                                                    {% endif %}
+                                                    
+                                                    <div class="mt-auto">
+                                                        {% if subtask.start_date or subtask.end_date %}
+                                                            <div class="text-start text-muted small mb-2">
+                                                                {% if subtask.start_date %}
+                                                                    <div>Début: {{ subtask.start_date|date:"d/m/Y" }}</div>
+                                                                {% endif %}
+                                                                {% if subtask.end_date %}
+                                                                    <div>Fin: {{ subtask.end_date|date:"d/m/Y" }}</div>
+                                                                {% endif %}
+                                                            </div>
+                                                        {% endif %}
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                                            <span class="status-badge" data-subtask-id="{{ subtask.id }}" data-status="{{ subtask.status }}">
+                                                                {{ subtask.get_status_display }}
+                                                            </span>
+                                                            <div>
+                                                                <button class="btn btn-sm btn-outline-primary edit-subtask-btn" data-subtask-id="{{ subtask.id }}">
+                                                                    <i class="fas fa-edit"></i>
+                                                                </button>
+                                                                <button class="btn btn-sm btn-outline-danger delete-subtask-btn" data-subtask-id="{{ subtask.id }}">
+                                                                    <i class="fas fa-trash"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            
+                            <!-- Modal pour les sous-tâches de cette action -->
+                            {% include 'partials/modal_subtask.html' with action=action %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    {% empty %}
+        <div class="alert alert-warning">
+            Aucun processus n'a été sélectionné pour ce projet.
+        </div>
+    {% endfor %}
+{% endif %}

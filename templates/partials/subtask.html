@@ -1,0 +1,28 @@
+<div class="subtask-item" data-id="{{ subtask.id }}"></div>
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="subtask-info">
+            <span class="subtask-subject">{{ subtask.subject }}</span>
+            {% if subtask.comments %}
+                <p class="subtask-comments small text-muted mb-0">{{ subtask.comments }}</p>
+            {% endif %}
+            {% if subtask.start_date or subtask.end_date %}
+                <div class="subtask-dates small text-muted">
+                    {% if subtask.start_date %}
+                        <span>Début: {{ subtask.start_date|date:"d/m/Y" }}</span>
+                    {% endif %}
+                    {% if subtask.end_date %}
+                        <span>Fin: {{ subtask.end_date|date:"d/m/Y" }}</span>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="subtask-actions">
+            <button class="btn btn-sm btn-link edit-subtask">
+                <i class="fas fa-edit"></i>
+            </button>
+            <button class="btn btn-sm btn-link text-danger delete-subtask">
+                <i class="fas fa-trash"></i>
+            </button>
+        </div>
+    </div>
+</div>

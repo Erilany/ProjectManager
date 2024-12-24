@@ -1,0 +1,8 @@
+{% load static %}
+<select class="form-select me-3" style="width: auto;" id="projetSelect">
+    {% for projet in projets %}
+        <option value="{{ projet.id }}" {% if projet.id == projet_actif.id %}selected{% endif %}>
+            {{ projet.nom }}
+        </option>
+    {% endfor %}
+</select>

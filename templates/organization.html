@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Organisation{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/organization.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- En-tête avec le nom du projet -->
+    <div class="row mb-4">
+        <div class="col">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1 class="h3">Organisation</h1>
+            </div>
+        </div>
+    </div>
+
+    <div id="organization-content">
+        <div class="text-center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Chargement...</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'partials/modal_interlocuteur.html' %}
+{% include 'partials/modal_groupe.html' %}
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/organization.js' %}"></script>
+{% endblock %}

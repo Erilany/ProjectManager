@@ -1,0 +1,24 @@
+<div class="modal fade" id="groupeModal" tabindex="-1" aria-labelledby="groupeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="groupeModalLabel">Ajouter un groupe d'interlocuteurs</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="groupeForm">
+                    {% csrf_token %}
+                    <input type="hidden" id="groupe_id" name="id">
+                    <div class="mb-3">
+                        <label for="nom" class="form-label">Nom du groupe</label>
+                        <input type="text" class="form-control" id="nom" name="nom" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                <button type="button" class="btn btn-primary" id="saveGroupe">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+</div>

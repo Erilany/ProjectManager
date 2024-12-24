@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Tableau de bord{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="mb-0">Tableau de bord</h2>
+    </div>
+    <!-- Conteneur pour les alertes -->
+    <div id="alerts-container" class="position-fixed top-0 end-0 p-3" style="z-index: 1050;"></div>
+
+    <!-- CSRF Token caché pour les requêtes AJAX -->
+    {% csrf_token %}
+
+    <!-- Section des projets sélectionnés -->
+    <div id="selectedProjectsContainer" class="row mb-4">
+        {% include 'partials/projets_selectionnes.html' with projets_selectionnes=projets_selectionnes %}
+    </div>
+
+    <!-- Tableau des projets -->
+    <div class="card">
+        <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Liste des projets</h5>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table" id="projectsTable">
+                    <thead>
+                        <tr>
+                            <th style="width: 50px;">
+                                <input type="checkbox" 
+                                    class="form-check-input projet-checkbox {% if projet.selectionne %}checked{% endif %}" 
+                                    data-projet-id="{{ projet.id }}"
+                                    {% if projet.selectionne %}checked{% endif %}>
+                     </td>
+                     <td>{{ projet.nom }}</td>
+                     <td>{{ projet.centre_di }}</td>
+                     <td>{{ projet.gmr }}</td>
+                     <td>{{ projet.manager.get_full_name }}</td>
+                 </tr>
+                    </thead>
+                    <tbody id="projectsTableBody">
+                        {% include 'partials/table_body.html' %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<!-- DataTables -->
+<script type="text/javascript" src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+
+<!-- URL pour le toggle des projets -->
+<script>
+    const toggleProjetUrl = "{% url 'toggle_projet_selection' %}";  // Assurez-vous que ce nom correspond à votre URL
+</script>
+
+<!-- Notre JavaScript personnalisé -->
+<script src="{% static 'js/dashboard.js' %}"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const selector = document.querySelector('.projet-selector');
+    if (selector) {
+        console.log('Sélecteur trouvé');
+        selector.addEventListener('change', function() {
+            const projetId = this.value;
+            console.log('Changement de projet, ID sélectionné :', projetId);
+            // ... reste du code ...
+        });
+    } else {
+        console.error('Sélecteur non trouvé');
+    }
+});
+</script>
+{% endblock %}

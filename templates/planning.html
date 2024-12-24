@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Planning{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/planning.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Planning</h2>
+        <div class="btn-group">
+            <a href="?view=week" class="btn btn-primary {% if view_type == 'week' %}active{% endif %}">Vue Semaine</a>
+            <a href="?view=month" class="btn btn-outline-primary {% if view_type == 'month' %}active{% endif %}">Vue Mois</a>
+        </div>
+    </div>
+
+    <div class="planning-container">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="col-fixed"></th>
+                        {% for week in weeks %}
+                            <th class="text-center" colspan="5">
+                                Semaine {{ week.week_num }}
+                            </th>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <th></th>
+                        {% for week in weeks %}
+                            {% for day in week.days %}
+                                <th class="text-center day-column {% if day == today %}today{% endif %}">
+                                    {{ day|date:"d" }}<br>
+                                    <small>{{ day|date:"D"|slice:":2" }}</small>
+                                </th>
+                            {% endfor %}
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for subtask in subtasks %}
+                    <tr>
+                        <td class="col-fixed">
+                            <div class="subtask-info">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="subtask-title">
+                                        {% if subtask.is_private %}
+                                            <i class="fas fa-lock me-2 text-muted"></i>
+                                        {% endif %}
+                                        {{ subtask.subject }}
+                                    </div>
+                                    <div class="subtask-dates text-muted">
+                                        {% if subtask.start_date or subtask.end_date %}
+                                            <small>
+                                                {% if subtask.start_date %}{{ subtask.start_date|date:"d/m/Y" }}{% endif %}
+                                                {% if subtask.start_date and subtask.end_date %} - {% endif %}
+                                                {% if subtask.end_date %}{{ subtask.end_date|date:"d/m/Y" }}{% endif %}
+                                            </small>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <small class="text-muted">{{ subtask.action.titre }}</small>
+                                <span class="badge bg-{{ subtask.get_status_display_color }}">
+                                    {{ subtask.get_status_display }}
+                                </span>
+                            </div>
+                        </td>
+                        {% for week in weeks %}
+                            {% for day in week.days %}
+                                <td class="{% if day == today %}today{% endif %} {% if subtask.start_date and subtask.end_date %}{% if day >= subtask.start_date and day <= subtask.end_date %}task-cell task-{{ subtask.status }}{% endif %}{% elif subtask.start_date %}{% if day == subtask.start_date %}task-cell task-{{ subtask.status }}{% endif %}{% elif subtask.end_date %}{% if day == subtask.end_date %}task-cell task-{{ subtask.status }}{% endif %}{% endif %}">
+                                    {% if subtask.start_date and day == subtask.start_date or subtask.end_date and day == subtask.end_date %}
+                                        <div class="task-marker"></div>
+                                    {% endif %}
+                                </td>
+                            {% endfor %}
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<!-- CSRF Token caché pour les requêtes AJAX -->
+{% csrf_token %}
+
+<script>
+document.querySelector('.projet-selector').addEventListener('change', function() {
+    const projetId = this.value;
+    const currentProjetId = document.querySelector('.projet-selector option[selected]').value;
+
+    if (projetId !== currentProjetId) {
+        fetch('/set-projet-actif/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+            },
+            body: JSON.stringify({ projet_id: projetId })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                window.location.reload();
+            }
+        })
+        .catch(error => console.error('Erreur:', error));
+    }
+});
+</script>
+{% endblock %}

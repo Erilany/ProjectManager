@@ -1,0 +1,147 @@
+{% if not projet_actif %}
+<div class="alert alert-info">Veuillez sélectionner un projet pour voir son organisation.</div>
+{% else %}
+
+<!-- Conteneur pour les alertes -->
+<div id="alerts-container" class="mt-3"></div>
+
+<!-- Section Interlocuteurs DI -->
+<div class="card mb-4">
+    <div class="card-header">
+        <h2 class="h5 mb-0">Interlocuteurs DI</h2>
+    </div>
+    <div class="card-body">
+        <div class="row" id="interlocuteurs-di">
+            {% for role in roles_di %}
+            <div class="col-md-6 col-lg-4 mb-3">
+                <div class="interlocuteur-card">
+                    <h3 class="h6">{{ role.nom }}</h3>
+                    {% with found_interlocuteur=False %}
+                        {% for interlocuteur in interlocuteurs_di %}
+                            {% if interlocuteur.role.id == role.id %}
+                                {% with found_interlocuteur=True %}
+                                <div class="interlocuteur-info">
+                                    <p>{{ interlocuteur.prenom }} {{ interlocuteur.nom }}</p>
+                                    {% if interlocuteur.email %}
+                                        <p><small>{{ interlocuteur.email }}</small></p>
+                                    {% endif %}
+                                    <div class="interlocuteur-actions mt-2">
+                                        <button class="btn btn-sm btn-outline-primary edit-interlocuteur" 
+                                                data-interlocuteur-id="{{ interlocuteur.id }}">
+                                            <i class="fas fa-edit"></i> Modifier
+                                        </button>
+                                    </div>
+                                </div>
+                                {% endwith %}
+                            {% endif %}
+                        {% endfor %}
+                        {% if not found_interlocuteur %}
+                            <button class="btn btn-sm btn-outline-secondary add-interlocuteur" 
+                                    data-role-id="{{ role.id }}"
+                                    data-role-type="DI">
+                                <i class="fas fa-plus"></i> Ajouter
+                            </button>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Section Interlocuteurs Prestataires -->
+<div class="card mb-4">
+    <div class="card-header">
+        <h2 class="h5 mb-0">Interlocuteurs Prestataires</h2>
+    </div>
+    <div class="card-body">
+        <div class="row" id="interlocuteurs-presta">
+            {% for role in roles_presta %}
+            <div class="col-md-6 col-lg-4 mb-3">
+                <div class="interlocuteur-card">
+                    <h3 class="h6">{{ role.nom }}</h3>
+                    {% with found_interlocuteur=False %}
+                        {% for interlocuteur in interlocuteurs_presta %}
+                            {% if interlocuteur.role.id == role.id %}
+                                {% with found_interlocuteur=True %}
+                                <div class="interlocuteur-info">
+                                    <p>{{ interlocuteur.prenom }} {{ interlocuteur.nom }}</p>
+                                    {% if interlocuteur.email %}
+                                        <p><small>{{ interlocuteur.email }}</small></p>
+                                    {% endif %}
+                                    <div class="interlocuteur-actions mt-2">
+                                        <button class="btn btn-sm btn-outline-primary edit-interlocuteur" 
+                                                data-interlocuteur-id="{{ interlocuteur.id }}">
+                                            <i class="fas fa-edit"></i> Modifier
+                                        </button>
+                                    </div>
+                                </div>
+                                {% endwith %}
+                            {% endif %}
+                        {% endfor %}
+                        {% if not found_interlocuteur %}
+                            <button class="btn btn-sm btn-outline-secondary add-interlocuteur" 
+                                    data-role-id="{{ role.id }}"
+                                    data-role-type="PRESTA">
+                                <i class="fas fa-plus"></i> Ajouter
+                            </button>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Section Groupes -->
+<div class="card mb-4">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h2 class="h5 mb-0">Groupes de travail</h2>
+        <button class="btn btn-sm btn-primary" id="addGroupeBtn">
+            <i class="fas fa-plus"></i> Nouveau groupe
+        </button>
+    </div>
+</div>
+
+<div id="autres-groupes">
+    {% for groupe in groupes %}
+    <div class="card mb-4 groupe-card" data-groupe-id="{{ groupe.id }}">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h3 class="h5 mb-0">{{ groupe.nom }}</h3>
+            <div class="btn-group">
+                <button class="btn btn-sm btn-outline-primary edit-groupe">
+                    <i class="fas fa-edit"></i> Modifier
+                </button>
+                <button class="btn btn-sm btn-outline-danger delete-groupe">
+                    <i class="fas fa-trash"></i> Supprimer
+                </button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table datatable">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Rôle</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for membre in groupe.membres.all %}
+                        <tr>
+                            <td>{{ membre.prenom }} {{ membre.nom }}</td>
+                            <td>{{ membre.role.nom }}</td>
+                            <td>{{ membre.email|default:'' }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}

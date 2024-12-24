@@ -1,0 +1,14 @@
+{% for projet in projets_selectionnes %}
+<div class="col-md-4 mb-3">
+    <div class="card project-card">
+        <div class="card-body">
+            <h5 class="card-title">{{ projet.nom }}</h5>
+            <div class="project-info">
+                <p><strong>Centre DI:</strong> {{ projet.centre_di.nom }}</p>
+                <p><strong>GMR:</strong> {{ projet.gmr.nom }}</p>
+                <p><strong>Manager:</strong> {{ projet.manager.get_full_name|default:projet.manager.username }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %} 

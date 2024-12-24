@@ -1,0 +1,13 @@
+{% for projet in projets %}
+<tr>
+    <td>
+        <input type="checkbox" class="form-check-input projet-checkbox" 
+               data-projet-id="{{ projet.id }}"
+               {% if projet.selectionne %}checked{% endif %}>
+    </td>
+    <td>{{ projet.nom }}</td>
+    <td>{{ projet.centre_di }}</td>
+    <td>{{ projet.gmr }}</td>
+    <td>{{ projet.manager.get_full_name }}</td>
+</tr>
+{% endfor %}

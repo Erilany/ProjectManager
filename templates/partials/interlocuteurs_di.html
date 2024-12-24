@@ -1,0 +1,33 @@
+{% for role in roles_di %}
+<div class="col-md-6 col-lg-4 mb-3">
+    <div class="interlocuteur-card">
+        <h3 class="h6">{{ role.nom }}</h3>
+        {% for interlocuteur in interlocuteurs_di %}
+            {% if interlocuteur.role == role %}
+            <div class="interlocuteur-info">
+                <p>{{ interlocuteur.prenom }} {{ interlocuteur.nom }}</p>
+                <div class="interlocuteur-actions mt-2">
+                    <button class="btn btn-sm btn-outline-primary edit-interlocuteur" 
+                            data-interlocuteur-id="{{ interlocuteur.id }}">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger delete-interlocuteur"
+                            data-interlocuteur-id="{{ interlocuteur.id }}">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+            {% else %}
+            <div class="empty-interlocuteur">
+                <button class="btn btn-sm btn-outline-primary add-interlocuteur w-100 mb-2" 
+                        data-role-id="{{ role.id }}"
+                        data-role-name="{{ role.nom }}"
+                        data-is-di="true">
+                    <i class="fas fa-plus"></i> Ajouter
+                </button>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}

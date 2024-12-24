@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Processus{% endblock %}
+
+{% block content %}
+<div class="container-fluid mt-4">
+    <div class="row mb-4">
+        <div class="col">
+            <h1>Gestion des processus</h1>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-6">
+            {% include 'partials/projet_selector.html' %}
+        </div>
+        <div class="col-md-6 text-end">
+            <a href="{% url 'summary' %}" class="btn btn-outline-primary">
+                <i class="fas fa-tasks me-2"></i>Sélectionner les étapes
+            </a>
+        </div>
+    </div>
+
+    <div id="process-content">
+        {% include 'partials/process_content.html' %}
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/process.js' %}"></script>
+{% endblock %}

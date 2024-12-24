@@ -1,0 +1,51 @@
+{% if not projet_actif %}
+    <div class="alert alert-info">
+        Veuillez sélectionner un projet pour voir sa synthèse.
+    </div>
+{% else %}
+    {% csrf_token %}
+    <!-- Partie basse - Processus -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Choix des processus</h2>
+        </div>
+        <div class="card-body">
+            <div class="processus-list">
+                {% for etape in etapes %}
+                <div class="processus-etape {% if etape.est_selectionnee %}selected{% endif %}" data-ordre="{{ etape.ordre_global }}">
+                    <div class="etape-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="form-check">
+                                <input class="form-check-input processus-checkbox" type="checkbox"
+                                    id="etape-{{ etape.id }}"
+                                    {% if etape.est_selectionnee %}checked{% endif %}
+                                    data-etape-id="{{ etape.id }}">
+                                <label class="form-check-label" for="etape-{{ etape.id }}">
+                                    <span class="etape-titre">{{ etape.nom }}</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="etape-content">
+                        <div class="row">
+                            {% for action in etape.actions.all|dictsort:"ordre" %}
+                            <div class="col-md-4 mb-2">
+                                <div class="action-item">
+                                    <div class="action-ordre">{{ action.ordre }}</div>
+                                    <div class="action-details">
+                                        <div class="action-titre">{{ action.titre }}</div>
+                                        {% if action.delai %}
+                                        <div class="action-delai">Délai: {{ action.delai }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endif %}
