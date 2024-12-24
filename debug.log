@@ -1,0 +1,452 @@
+Watching for file changes with StatReloader
+C:\Users\eric-\Documents\Programmation\projectmanager\projectmanager\urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+Not Found: /login
+"GET /login?next=/ HTTP/1.1" 404 4413
+Watching for file changes with StatReloader
+Not Found: /login
+"GET /login?next=/ HTTP/1.1" 404 4413
+Not Found: /login
+"GET /login?next=/ HTTP/1.1" 404 4413
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 4424
+Not Found: /login
+"GET /login?next=/ HTTP/1.1" 404 4413
+Watching for file changes with StatReloader
+Not Found: /login
+"GET /login?next=/ HTTP/1.1" 404 4413
+Not Found: /login
+"GET /login?next=/ HTTP/1.1" 404 4413
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 4424
+C:\Users\eric-\Documents\Programmation\projectmanager\core\urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /login?next=/ HTTP/1.1" 301 0
+"GET /login/?next=/ HTTP/1.1" 200 4722
+"POST /login/?next=/ HTTP/1.1" 302 0
+Tentative d'acc�s au dashboard
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x00000275ACD23440>
+"GET / HTTP/1.1" 200 4054
+Tentative d'acc�s au dashboard
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x00000275ACD225D0>
+"GET / HTTP/1.1" 200 4054
+Tentative d'acc�s au summary
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x00000275ACCF3860>
+"GET /summary/ HTTP/1.1" 200 4033
+Tentative d'acc�s au dashboard
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x00000275ACCF3BF0>
+"GET / HTTP/1.1" 200 4054
+Tentative d'acc�s a organization
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x00000275ACCF38C0>
+"GET /organization/ HTTP/1.1" 200 4045
+Tentative d'acc�s a process
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x00000275ACD200E0>
+"GET /process/ HTTP/1.1" 200 4036
+Tentative d'acc�s a studies
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x00000275ACD21970>
+"GET /studies/ HTTP/1.1" 200 4028
+Tentative d'acc�s a planning
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x00000275ACD23890>
+"GET /planning/ HTTP/1.1" 200 4034
+Tentative d'acc�s a planning
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x00000275ACD22600>
+"GET /planning/ HTTP/1.1" 200 4034
+Tentative d'acc�s a planning
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x00000275ACD6C6E0>
+"GET /planning/ HTTP/1.1" 200 4034
+Tentative d'acc�s a misc
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x00000275ACD6E300>
+"GET /misc/ HTTP/1.1" 200 4021
+Tentative d'acc�s a studies
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x00000275ACD6D790>
+"GET /studies/ HTTP/1.1" 200 4028
+Watching for file changes with StatReloader
+Tentative d'acc�s a studies
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001E88F8BD280>
+"GET /studies/ HTTP/1.1" 200 4028
+"GET /studies/ HTTP/1.1" 302 0
+"GET /login?next=/studies/ HTTP/1.1" 301 0
+"GET /login/?next=/studies/ HTTP/1.1" 200 4722
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 4600
+"POST /login/?next=/studies/ HTTP/1.1" 302 0
+Tentative d'acc�s a studies
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001E88F823860>
+"GET /studies/ HTTP/1.1" 200 4028
+Tentative d'acc�s au dashboard
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001E88F871430>
+"GET / HTTP/1.1" 200 4054
+Tentative d'acc�s au summary
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001E88F872CC0>
+"GET /summary/ HTTP/1.1" 200 4033
+Tentative d'acc�s a process
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001E88F8731A0>
+"GET /process/ HTTP/1.1" 200 4036
+Tentative d'acc�s au dashboard
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001E88F8E0DD0>
+"GET / HTTP/1.1" 200 4054
+Tentative d'acc�s au summary
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001E88F8E07D0>
+"GET /summary/ HTTP/1.1" 200 4033
+Tentative d'acc�s a organization
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001E88F823E90>
+"GET /organization/ HTTP/1.1" 200 4045
+Tentative d'acc�s a process
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001E88F823800>
+"GET /process/ HTTP/1.1" 200 4036
+Tentative d'acc�s au summary
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001E88F870BF0>
+"GET /summary/ HTTP/1.1" 200 4033
+Tentative d'acc�s au dashboard
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001E88F873D10>
+"GET / HTTP/1.1" 200 4054
+Tentative d'acc�s au summary
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001E88F870620>
+"GET /summary/ HTTP/1.1" 200 4033
+Tentative d'acc�s a organization
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001E88F872570>
+"GET /organization/ HTTP/1.1" 200 4045
+Tentative d'acc�s a process
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001E88F8725A0>
+"GET /process/ HTTP/1.1" 200 4036
+Tentative d'acc�s a studies
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001E88F898320>
+"GET /studies/ HTTP/1.1" 200 4028
+Tentative d'acc�s a misc
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001E88F872150>
+"GET /misc/ HTTP/1.1" 200 4021
+Tentative d'acc�s a planning
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001E88F8716A0>
+"GET /planning/ HTTP/1.1" 200 4034
+Tentative d'acc�s a misc
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001E88F871A30>
+"GET /misc/ HTTP/1.1" 200 4021
+C:\Users\eric-\Documents\Programmation\projectmanager\projectmanager\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Tentative d'acc�s a misc
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001298D5CE120>
+"GET /misc/ HTTP/1.1" 200 3396
+"GET /static/css/style.css HTTP/1.1" 200 3779
+Tentative d'acc�s au dashboard
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001298DABE930>
+"GET / HTTP/1.1" 200 3422
+"GET /static/css/style.css HTTP/1.1" 304 0
+Tentative d'acc�s au summary
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001298DABC440>
+"GET /summary/ HTTP/1.1" 200 3403
+"GET /static/css/style.css HTTP/1.1" 304 0
+Tentative d'acc�s a organization
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001298DABC6E0>
+"GET /organization/ HTTP/1.1" 200 3413
+"GET /static/css/style.css HTTP/1.1" 304 0
+Tentative d'acc�s a process
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001298DA23560>
+"GET /process/ HTTP/1.1" 200 3404
+"GET /static/css/style.css HTTP/1.1" 304 0
+Tentative d'acc�s a studies
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001298DA71400>
+"GET /studies/ HTTP/1.1" 200 3396
+"GET /static/css/style.css HTTP/1.1" 304 0
+Tentative d'acc�s a misc
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001298DA71E20>
+"GET /misc/ HTTP/1.1" 200 3396
+"GET /static/css/style.css HTTP/1.1" 304 0
+Tentative d'acc�s a planning
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001298DA723F0>
+"GET /planning/ HTTP/1.1" 200 3402
+Tentative d'acc�s au summary
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001298DA70DD0>
+"GET /summary/ HTTP/1.1" 200 3403
+"GET /static/css/style.css HTTP/1.1" 304 0
+Tentative d'acc�s au summary
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001298DA23D10>
+"GET /summary/ HTTP/1.1" 200 3403
+"GET /static/css/style.css HTTP/1.1" 200 1521
+Tentative d'acc�s au dashboard
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001298DAE25A0>
+"GET / HTTP/1.1" 200 3422
+"GET /static/css/style.css HTTP/1.1" 304 0
+Tentative d'acc�s au summary
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001298DA237A0>
+"GET /summary/ HTTP/1.1" 200 3403
+"GET /static/css/style.css HTTP/1.1" 304 0
+Tentative d'acc�s a organization
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001298DABC800>
+"GET /organization/ HTTP/1.1" 200 3413
+"GET /static/css/style.css HTTP/1.1" 304 0
+Tentative d'acc�s a process
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001298DA73140>
+"GET /process/ HTTP/1.1" 200 3404
+"GET /static/css/style.css HTTP/1.1" 304 0
+Tentative d'acc�s a studies
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001298DA70200>
+"GET /studies/ HTTP/1.1" 200 3396
+Tentative d'acc�s a misc
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001298DA71850>
+"GET /misc/ HTTP/1.1" 200 3396
+"GET /static/css/style.css HTTP/1.1" 304 0
+Tentative d'acc�s a planning
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001298DA73920>
+"GET /planning/ HTTP/1.1" 200 3402
+"GET /static/css/style.css HTTP/1.1" 304 0
+Tentative d'acc�s a planning
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001298DA73320>
+"GET /planning/ HTTP/1.1" 200 3402
+"GET /static/css/style.css HTTP/1.1" 200 3858
+Tentative d'acc�s a studies
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001298DA73890>
+"GET /studies/ HTTP/1.1" 200 3396
+"GET /static/css/style.css HTTP/1.1" 304 0
+Tentative d'acc�s a profile
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001298DA73020>
+"GET /profile/ HTTP/1.1" 200 3392
+"GET /static/css/style.css HTTP/1.1" 304 0
+Tentative d'acc�s au dashboard
+Utilisateur authentifi� : True
+Session : <django.contrib.sessions.backends.db.SessionStore object at 0x000001298DA70230>
+"GET / HTTP/1.1" 200 3422
+"GET /static/css/style.css HTTP/1.1" 304 0
+C:\Users\eric-\Documents\Programmation\projectmanager\core\models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /login?next=/ HTTP/1.1" 301 0
+"GET /login/?next=/ HTTP/1.1" 200 4256
+"GET /static/css/style.css HTTP/1.1" 200 3858
+"POST /login/?next=/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 6112
+"GET /static/css/dashboard.css HTTP/1.1" 200 3079
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /login?next=/ HTTP/1.1" 301 0
+"GET /login/?next=/ HTTP/1.1" 200 4256
+"GET /static/css/style.css HTTP/1.1" 304 0
+"POST /login/?next=/ HTTP/1.1" 200 4256
+"GET / HTTP/1.1" 302 0
+"GET /login/?next=/ HTTP/1.1" 200 4256
+"POST /login/?next=/ HTTP/1.1" 200 4256
+"GET / HTTP/1.1" 302 0
+"GET /login/?next=/ HTTP/1.1" 200 4256
+"GET /summary/ HTTP/1.1" 302 0
+"GET /login?next=/summary/ HTTP/1.1" 301 0
+"GET /login/?next=/summary/ HTTP/1.1" 200 4256
+"GET /organization/ HTTP/1.1" 302 0
+"GET /login?next=/organization/ HTTP/1.1" 301 0
+"GET /login/?next=/organization/ HTTP/1.1" 200 4256
+"GET /process/ HTTP/1.1" 302 0
+"GET /login?next=/process/ HTTP/1.1" 301 0
+"GET /login/?next=/process/ HTTP/1.1" 200 4256
+"GET /admin/auth/user/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/auth/user/ HTTP/1.1" 200 4258
+"GET /static/admin/css/base.css HTTP/1.1" 200 22092
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2804
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+"GET /static/admin/css/responsive.css HTTP/1.1" 200 17972
+"GET /static/admin/css/login.css HTTP/1.1" 200 951
+"GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+"POST /admin/login/?next=/admin/auth/user/ HTTP/1.1" 200 4498
+"POST /admin/login/?next=/admin/auth/user/ HTTP/1.1" 200 4493
+Watching for file changes with StatReloader
+"POST /admin/login/?next=/admin/auth/user/ HTTP/1.1" 200 4493
+"POST /admin/login/?next=/admin/auth/user/ HTTP/1.1" 302 0
+"GET /admin/auth/user/ HTTP/1.1" 200 11405
+"GET /admin/jsi18n/ HTTP/1.1" 200 8985
+"GET /static/admin/js/core.js HTTP/1.1" 200 6208
+"GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9097
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+"GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+"GET /static/admin/img/search.svg HTTP/1.1" 200 458
+"GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+"GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+"GET /static/admin/js/filters.js HTTP/1.1" 200 978
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+"GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+"GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+Forbidden (CSRF token from POST incorrect.): /login/
+"POST /login/?next=/process/ HTTP/1.1" 403 2526
+Forbidden (CSRF cookie not set.): /login/
+"POST /login/?next=/process/ HTTP/1.1" 403 2971
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 4600
+"GET / HTTP/1.1" 302 0
+"GET /login?next=/ HTTP/1.1" 301 0
+"GET /login/?next=/ HTTP/1.1" 200 4256
+"GET /static/css/style.css HTTP/1.1" 200 3858
+"POST /login/?next=/ HTTP/1.1" 200 4256
+"POST /login/?next=/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 6112
+"GET /static/css/dashboard.css HTTP/1.1" 200 3079
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /login?next=/ HTTP/1.1" 301 0
+"GET /login/?next=/ HTTP/1.1" 200 4256
+"GET /static/css/style.css HTTP/1.1" 304 0
+"POST /login/?next=/ HTTP/1.1" 200 4256
+"POST /login/?next=/ HTTP/1.1" 200 4256
+"POST /login/?next=/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 6112
+"GET /static/css/dashboard.css HTTP/1.1" 304 0
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /login?next=/ HTTP/1.1" 301 0
+"GET /login/?next=/ HTTP/1.1" 200 4256
+"GET /static/css/style.css HTTP/1.1" 304 0
+"POST /login/?next=/ HTTP/1.1" 200 4256
+"GET /admin/auth/user/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/auth/user/ HTTP/1.1" 200 4258
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2804
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+"GET /static/admin/css/login.css HTTP/1.1" 200 951
+"GET /static/admin/css/responsive.css HTTP/1.1" 200 17972
+"GET /static/admin/css/base.css HTTP/1.1" 200 22092
+"GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+"POST /admin/login/?next=/admin/auth/user/ HTTP/1.1" 302 0
+"GET /admin/auth/user/ HTTP/1.1" 200 11405
+"GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+"GET /static/admin/js/core.js HTTP/1.1" 200 6208
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9097
+"GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+"GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+"GET /admin/jsi18n/ HTTP/1.1" 200 8985
+"GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+"GET /static/admin/img/search.svg HTTP/1.1" 200 458
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+"GET /static/admin/js/filters.js HTTP/1.1" 200 978
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+"GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+"GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+"GET /admin/auth/user/add/ HTTP/1.1" 200 12268
+"GET /static/admin/css/forms.css HTTP/1.1" 200 8794
+"GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+"GET /static/admin/css/unusable_password_field.css HTTP/1.1" 200 663
+"GET /static/admin/css/widgets.css HTTP/1.1" 200 11564
+"GET /admin/jsi18n/ HTTP/1.1" 200 8985
+"GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+"GET /static/admin/js/unusable_password_field.js HTTP/1.1" 200 1480
+"POST /admin/auth/user/add/ HTTP/1.1" 200 12594
+"GET /admin/jsi18n/ HTTP/1.1" 200 8985
+"POST /admin/auth/user/add/ HTTP/1.1" 200 12511
+"GET /admin/jsi18n/ HTTP/1.1" 200 8985
+"POST /admin/auth/user/add/ HTTP/1.1" 200 12511
+"GET /admin/jsi18n/ HTTP/1.1" 200 8985
+"POST /admin/auth/user/add/ HTTP/1.1" 200 12511
+"GET /admin/jsi18n/ HTTP/1.1" 200 8985
+"POST /admin/auth/user/add/ HTTP/1.1" 200 12458
+"GET /admin/jsi18n/ HTTP/1.1" 200 8985
+"GET /admin/auth/user/ HTTP/1.1" 200 11405
+"GET /admin/jsi18n/ HTTP/1.1" 200 8985
+"GET /admin/auth/user/add/ HTTP/1.1" 200 12268
+"GET /admin/jsi18n/ HTTP/1.1" 200 8985
+"POST /admin/auth/user/add/ HTTP/1.1" 200 12458
+"GET /admin/jsi18n/ HTTP/1.1" 200 8985
+"POST /admin/auth/user/add/ HTTP/1.1" 302 0
+"GET /admin/auth/user/2/change/ HTTP/1.1" 200 22647
+"GET /admin/jsi18n/ HTTP/1.1" 200 8985
+"GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+"GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 15502
+"GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+"GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+"GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 3291
+"GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+"GET /static/admin/img/icon-unknown-alt.svg HTTP/1.1" 200 655
+"GET /static/admin/img/icon-unknown.svg HTTP/1.1" 200 655
+"GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+"GET /admin/auth/user/add/ HTTP/1.1" 200 12268
+"GET /admin/jsi18n/ HTTP/1.1" 200 8985
+"POST /admin/auth/user/add/ HTTP/1.1" 302 0
+"GET /admin/auth/user/3/change/ HTTP/1.1" 200 22647
+"GET /admin/jsi18n/ HTTP/1.1" 200 8985
+Forbidden (CSRF token from POST incorrect.): /login/
+"POST /login/?next=/ HTTP/1.1" 403 2526
+"GET / HTTP/1.1" 200 6112
+"GET /static/css/dashboard.css HTTP/1.1" 304 0
+"GET /summary/ HTTP/1.1" 200 3657
+"GET /organization/ HTTP/1.1" 200 3667
+"GET /summary/ HTTP/1.1" 200 3657
+"GET / HTTP/1.1" 200 6112
+"GET /planning/ HTTP/1.1" 200 3656
+"GET /misc/ HTTP/1.1" 200 3650
+"GET /studies/ HTTP/1.1" 200 3650
+"GET /process/ HTTP/1.1" 200 3658
+"GET /static/css/style.css HTTP/1.1" 304 0
+"GET /organization/ HTTP/1.1" 200 3667
+"GET /summary/ HTTP/1.1" 200 3657
+"GET / HTTP/1.1" 200 6112
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 302 0
+"GET /login?next=/ HTTP/1.1" 301 0
+"GET /login/?next=/ HTTP/1.1" 200 4256
+"POST /login/?next=/ HTTP/1.1" 200 4256
+"POST /login/?next=/ HTTP/1.1" 200 4256
+"GET /admin/auth/user/3/change/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/auth/user/3/change/ HTTP/1.1" 200 4276
+"POST /admin/login/?next=/admin/auth/user/3/change/ HTTP/1.1" 302 0
+"GET /admin/auth/user/3/change/ HTTP/1.1" 302 0
+"GET /admin/ HTTP/1.1" 200 6177
+"GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+"GET /static/admin/img/icon-alert.svg HTTP/1.1" 200 504
+"GET /admin/auth/user/ HTTP/1.1" 200 11405
+"GET /admin/jsi18n/ HTTP/1.1" 200 8985
