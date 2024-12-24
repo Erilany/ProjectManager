@@ -1,0 +1,110 @@
+/* Structure de base */
+.planning-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.05);
+    padding: 1rem;
+}
+
+/* Style pour la colonne fixe */
+.col-fixed {
+    position: sticky;
+    left: 0;
+    background-color: white;
+    z-index: 1;
+    min-width: 200px;
+}
+
+/* Style pour les colonnes de jours */
+.day-column {
+    min-width: 100px;
+    text-align: center;
+}
+
+/* Style pour la date du jour */
+.today {
+    position: relative;
+}
+
+.today::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 2px;
+    background-color: #ff9999;  /* Rouge pastel pour la ligne du jour */
+    z-index: 2;
+}
+
+/* Style pour les informations des sous-tâches */
+.subtask-info {
+    padding: 0.5rem;
+}
+
+.subtask-title {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    flex: 1;
+    padding-right: 1rem;
+}
+
+.subtask-dates {
+    white-space: nowrap;
+    font-size: 0.875rem;
+}
+
+/* Style pour les cellules de tâches */
+.task-cell {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ddd;
+}
+
+/* Styles pour les différents statuts avec des couleurs pastels */
+.task-todo {
+    background-color: #d3d3d3 !important;  /* Gris pastel */
+}
+
+.task-in-progress {
+    background-color: #99c2ff !important;  /* Bleu pastel */
+}
+
+.task-waiting {
+    background-color: #ffe699 !important;  /* Jaune pastel */
+}
+
+.task-done {
+    background-color: #99e6b3 !important;  /* Vert pastel */
+}
+
+.task-blocked {
+    background-color: #ff9999 !important;  /* Rouge pastel */
+}
+
+/* Style pour les marqueurs de début et fin */
+.task-marker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border-left: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+}
+
+.task-cell:not(:last-child) {
+    border-right: none;
+}
+
+.task-cell:not(:first-child) {
+    border-left: none;
+}
+
+/* Assurer que le tableau reste lisible en scrollant */
+.table-responsive {
+    overflow-x: auto;
+    max-height: calc(100vh - 200px);
+}

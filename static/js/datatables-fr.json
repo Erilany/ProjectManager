@@ -1,0 +1,17 @@
+{
+    "emptyTable": "Aucune donnée disponible",
+    "info": "Affichage de _START_ à _END_ sur _TOTAL_ entrées",
+    "infoEmpty": "Affichage de 0 à 0 sur 0 entrée",
+    "infoFiltered": "(filtré sur _MAX_ entrées au total)",
+    "lengthMenu": "Afficher _MENU_ entrées",
+    "loadingRecords": "Chargement...",
+    "processing": "Traitement...",
+    "search": "Rechercher :",
+    "zeroRecords": "Aucun résultat trouvé",
+    "paginate": {
+        "first": "Premier",
+        "last": "Dernier",
+        "next": "Suivant",
+        "previous": "Précédent"
+    }
+}

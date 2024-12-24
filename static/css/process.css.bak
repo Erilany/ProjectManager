@@ -1,0 +1,542 @@
+/* Structure de base */
+.processus-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Styles des étapes */
+.processus-etape {
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    background: white;
+    overflow: hidden;
+}
+
+.etape-header {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.etape-titre {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: inherit;
+}
+
+.etape-content {
+    padding: 1rem;
+}
+
+/* Styles des actions */
+.action-container {
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    margin-bottom: 0.75rem;
+    background: #fff;
+}
+
+.action-header {
+    padding: 0.75rem;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.action-content {
+    padding: 1rem;
+}
+
+.action-titre {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Boutons toggle */
+.toggle-content,
+.toggle-action {
+    padding: 0;
+    background: none;
+    border: none;
+    color: inherit;
+    margin-right: 0.5rem;
+}
+
+.toggle-content i,
+.toggle-action i {
+    transition: transform 0.3s ease;
+}
+
+.collapsed .toggle-content i,
+.collapsed .toggle-action i {
+    transform: rotate(-90deg);
+}
+
+.collapsed .etape-content,
+.action-container.collapsed .action-content {
+    display: none;
+}
+
+/* Statuts */
+.status-selector {
+    position: relative;
+}
+
+.btn-status {
+    padding: 0.25rem 0.5rem;
+    background: none;
+    border: none;
+}
+
+.status-icon {
+    font-size: 0.875rem;
+}
+
+/* Couleurs des statuts */
+[data-status="todo"] .status-icon {
+    color: #6c757d;
+}
+
+[data-status="in-progress"] .status-icon {
+    color: #0d6efd;
+}
+
+[data-status="waiting"] .status-icon {
+    color: #ffc107;
+}
+
+[data-status="done"] .status-icon {
+    color: #198754;
+}
+
+/* Bouton Ajouter */
+.add-subtask {
+    display: flex;
+    align-items: center;
+    color: #0d6efd;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+}
+
+.add-subtask i {
+    margin-right: 0.5rem;
+}
+
+/* Liste des sous-tâches */
+.subtasks-list {
+    margin-top: 1rem;
+}
+
+/* Menu déroulant de statut */
+.dropdown-menu {
+    min-width: 200px;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.dropdown-item i {
+    width: 1rem;
+    text-align: center;
+}
+
+/* Styles pour la modale */
+.modal-body {
+    padding: 1.5rem;
+}
+
+.status-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.status-buttons .btn {
+    flex: 1;
+    min-width: 100px;
+    padding: 0.5rem 1rem;
+}
+
+/* Styles pour les sous-tâches */
+.subtask-item {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    background-color: #f8f9fa;
+}
+
+.subtask-item:hover {
+    background-color: #f1f3f5;
+}
+
+.subtask-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.subtask-info {
+    flex-grow: 1;
+}
+
+.subtask-comments {
+    margin-top: 0.25rem;
+}
+
+.subtask-dates {
+    margin-top: 0.25rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.subtask-title {
+    font-weight: 500;
+}
+
+.subtask-dates {
+    color: #6c757d;
+}
+
+.subtask-comments {
+    font-size: 0.9rem;
+    color: #495057;
+}
+
+.subtask-footer {
+    font-size: 0.875rem;
+}
+
+.subtask-status {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.status-todo i { color: #6c757d; }
+.status-in-progress i { color: #0d6efd; }
+.status-waiting i { color: #ffc107; }
+.status-done i { color: #198754; }
+
+.subtask-private {
+    color: #dc3545;
+}
+
+/* Styles des badges de statut */
+.subtask-status .badge {
+    font-size: 0.75rem;
+    padding: 0.25em 0.6em;
+}
+
+.badge.bg-todo { background-color: #6c757d !important; }
+.badge.bg-in-progress { background-color: #0d6efd !important; }
+.badge.bg-waiting { background-color: #ffc107 !important; color: #000 !important; }
+.badge.bg-done { background-color: #198754 !important; }
+
+.process-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.etape-section {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.05);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.etape-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.actions-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.action-card {
+    background: #f8f9fa;
+    border-radius: 6px;
+    padding: 1rem;
+    border: 1px solid #dee2e6;
+}
+
+.action-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.action-content {
+    padding: 0.5rem 0;
+}
+
+.action-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.subtasks-container {
+    margin: 1rem 0;
+}
+
+.add-subtask {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* Status badges */
+.badge {
+    padding: 0.5em 1em;
+    font-weight: 500;
+}
+
+.bg-todo { background-color: #6c757d; }
+.bg-in-progress { background-color: #0d6efd; }
+.bg-done { background-color: #198754; }
+.bg-blocked { background-color: #dc3545; }
+
+.subtask-item {
+    border: 1px solid rgba(0,0,0,.125);
+    transition: all 0.3s ease;
+}
+
+.subtask-item:hover {
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,.075);
+}
+
+.subtask-item .card-title {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.subtask-item .card-text {
+    font-size: 0.8rem;
+}
+
+.subtask-controls {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.subtask-item:hover .subtask-controls {
+    opacity: 1;
+}
+
+.subtask-controls .btn {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.8rem;
+}
+
+/* Couleurs des statuts */
+.bg-primary {
+    background-color: #0d6efd !important;
+}
+
+.bg-warning {
+    background-color: #ffc107 !important;
+}
+
+.bg-success {
+    background-color: #198754 !important;
+}
+
+.bg-secondary {
+    background-color: #6c757d !important;
+}
+
+/* Opacité pour le fond des cartes */
+.bg-opacity-10 {
+    --bs-bg-opacity: 0.1;
+}
+
+/* Couleurs pastel pour les statuts */
+.bg-primary.bg-opacity-10 {
+    background-color: #e6f0ff !important;  /* Bleu pastel */
+}
+
+.bg-warning.bg-opacity-10 {
+    background-color: #fff8e6 !important;  /* Jaune pastel */
+}
+
+.bg-success.bg-opacity-10 {
+    background-color: #e6ffe6 !important;  /* Vert pastel */
+}
+
+.bg-secondary.bg-opacity-10 {
+    background-color: #f8f9fa !important;  /* Gris très clair */
+}
+
+/* Badges avec couleurs pastel */
+.badge.bg-primary {
+    background-color: #99c2ff !important;  /* Bleu pastel */
+    color: #004085 !important;
+}
+
+.badge.bg-warning {
+    background-color: #ffe699 !important;  /* Jaune pastel */
+    color: #856404 !important;
+}
+
+.badge.bg-success {
+    background-color: #99e699 !important;  /* Vert pastel */
+    color: #155724 !important;
+}
+
+.badge.bg-secondary {
+    background-color: #d6d8db !important;  /* Gris pastel */
+    color: #383d41 !important;
+}
+
+/* Style pour l'icône du cadenas */
+.fa-lock {
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+}
+
+/* Ajustements pour les contrôles */
+.subtask-controls .btn {
+    background-color: white;
+    margin-left: 0.25rem;
+}
+
+.subtask-controls .btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Amélioration de la lisibilité */
+.card-title {
+    color: #2c3e50;
+}
+
+.text-muted {
+    color: #6c757d !important;
+}
+
+.toggle-etape, .toggle-action {
+    padding: 0;
+    color: #495057;
+    transition: transform 0.2s;
+    font-size: 1.1rem;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.toggle-etape:hover, .toggle-action:hover {
+    background-color: rgba(0,0,0,.05);
+    color: #212529;
+}
+
+.toggle-etape i, .toggle-action i {
+    transition: transform 0.2s;
+}
+
+.card-header {
+    padding: 0.75rem 1rem;
+}
+
+.action-header {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    margin-bottom: 1rem;
+}
+
+.action-info {
+    display: flex;
+    align-items: center;
+}
+
+.status-badge {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.status-badge:hover {
+    opacity: 0.8;
+}
+
+.bg-todo-subtle {
+    background-color: rgba(108, 117, 125, 0.1);
+}
+
+.bg-in_progress-subtle {
+    background-color: rgba(13, 110, 253, 0.1);
+}
+
+.bg-waiting-subtle {
+    background-color: rgba(255, 193, 7, 0.1);
+}
+
+.bg-done-subtle {
+    background-color: rgba(25, 135, 84, 0.1);
+}
+
+.border-todo {
+    border-color: #6c757d !important;
+}
+
+.border-in_progress {
+    border-color: #0d6efd !important;
+}
+
+.border-waiting {
+    border-color: #ffc107 !important;
+}
+
+.border-done {
+    border-color: #198754 !important;
+}
+
+.card-header .btn-link {
+    padding: 0;
+    color: inherit;
+    text-decoration: none;
+}
+
+.card-header .btn-link:hover {
+    color: #0d6efd;
+}
+
+.toggle-etape, .toggle-action {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.status-menu {
+    min-width: 120px;
+    padding: 0.5rem 0;
+}
+
+.status-menu .status-option {
+    padding: 0.5rem 1rem;
+    margin: 0.25rem 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.status-menu .status-option:hover {
+    opacity: 0.8;
+}
