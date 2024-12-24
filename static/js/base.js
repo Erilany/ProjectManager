@@ -1,80 +1,86 @@
 class BaseManager {
     constructor() {
-        this.initProjectSelector();
         console.log('BaseManager initialized');
+        this.initializeEventListeners();
     }
 
-    initProjectSelector() {
-        const projectSelect = document.getElementById('projet-select');
-        if (projectSelect) {
-            projectSelect.addEventListener('change', async (e) => {
-                const projetId = e.target.value;
-                try {
-                    const response = await fetch('/set-projet-actif/', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRFToken': this.getCsrfToken()
-                        },
-                        body: JSON.stringify({ projet_id: projetId })
-                    });
-                    
-                    if (!response.ok) {
-                        throw new Error('Erreur lors du changement de projet');
-                    }
-                    
-                    const data = await response.json();
-                    if (data.status === 'success') {
-                        // Émettre un événement pour notifier le changement de projet
-                        const event = new CustomEvent('projetChange', {
-                            detail: { projetId }
-                        });
-                        document.dispatchEvent(event);
-                        
-                        this.showMessage('Projet changé avec succès', 'success');
-                    } else {
-                        throw new Error(data.message || 'Erreur lors du changement de projet');
-                    }
-                } catch (error) {
-                    console.error('Erreur:', error);
-                    this.showMessage('Erreur lors du changement de projet', 'error');
-                }
-            });
+    initializeEventListeners() {
+        // Écouteur pour le sélecteur de projet
+        const projetSelect = document.getElementById('projet-select');
+        if (projetSelect) {
+            projetSelect.addEventListener('change', () => this.setProjet());
         }
+
+        // Écouteur pour les checkboxes des projets
+        const projetCheckboxes = document.querySelectorAll('.projet-checkbox');
+        projetCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', (event) => this.handleProjetSelection(event));
+        });
     }
 
-    getCsrfToken() {
-        const name = 'csrftoken';
-        let cookieValue = null;
-        if (document.cookie && document.cookie !== '') {
-            const cookies = document.cookie.split(';');
-            for (let i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i].trim();
-                if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
+    setProjet() {
+        const projetId = document.getElementById('projet-select').value;
+        const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        
+        fetch('/set-projet-actif/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrfToken
+            },
+            body: JSON.stringify({
+                'projet_id': projetId
+            })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erreur lors du changement de projet');
             }
-        }
-        return cookieValue;
+            return response.json();
+        })
+        .then(data => {
+            window.location.reload();
+        })
+        .catch(error => {
+            console.error('Erreur:', error);
+            console.error('Détails:', error.message);
+        });
     }
 
-    showMessage(message, type) {
-        const alertsContainer = document.getElementById('alerts-container');
-        if (!alertsContainer) return;
+    handleProjetSelection(event) {
+        const checkbox = event.target;
+        const projetId = checkbox.value;
+        const action = checkbox.checked ? 'add' : 'remove';
+        const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
 
-        const alert = document.createElement('div');
-        alert.className = `alert alert-${type === 'error' ? 'danger' : type} alert-dismissible fade show`;
-        alert.innerHTML = `
-            ${message}
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        `;
-        alertsContainer.appendChild(alert);
-        setTimeout(() => alert.remove(), 5000);
+        fetch('/toggle-projet-selection/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrfToken
+            },
+            body: JSON.stringify({
+                'projet_id': projetId,
+                'action': action
+            })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erreur lors de la mise à jour de la sélection du projet');
+            }
+            return response.json();
+        })
+        .then(data => {
+            window.location.reload();
+        })
+        .catch(error => {
+            console.error('Erreur:', error);
+            checkbox.checked = !checkbox.checked;  // Rétablir l'état précédent en cas d'erreur
+        });
     }
 }
 
-// Initialiser le gestionnaire de base
+// Initialisation
 document.addEventListener('DOMContentLoaded', () => {
-    window.baseManager = new BaseManager();
+    const baseManager = new BaseManager();
 });
